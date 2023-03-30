@@ -13,8 +13,9 @@ export default function Satisfaction() {
     const [noteApprenant, setNoteApprenant] = useState(0);
 
     useEffect(() => {
-        axios.get("http://localhost:5000/review")
+        axios.get("http://localhost:5000/api/review")
             .then((res) => {
+                console.log(res.data);
                 setNoteEmployeur(res.data.reduce((sum, avis) => sum + avis.rate, 0) / res.data.length * 20);
             })
             .catch((err) => {
