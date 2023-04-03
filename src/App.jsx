@@ -47,19 +47,6 @@ export default function App() {
           <Route exact path="/notre-mission" element={<NotreMission />} />
           <Route exact path="/gestion-cookies" element={<GestionCookies />} />
           <Route exact path="/mention-legales" element={<MentionsLegales />} />
-
-          <Route exact path="/salle-a" element={<SalleA userID={userID} />} />
-          <Route exact path="/salle-b" element={<SalleB userID={userID} />} />
-
-          {(!isAuthenticated &&
-            <Route exact path="/login" element={<Login userID={userID} setUserID={setUserID} />} />
-          )}
-          {(isAuthenticated &&
-            <>
-              {(role === "admin" && <Route exact path="/admin" element={<Admin userID={userID} />} />)}
-              {(role === "formateur" && <Route exact path="/profa" element={<ProfA userID={userID} setUserID={setUserID} />} />)}
-            </>
-          )}
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
       </main>
