@@ -1,17 +1,12 @@
 import React, { useContext, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Error404 from "./Components/Error404";
 import Home from "./Components/pages/Home";
-import Admin from "./Components/pages/comptes/Admin";
-import ProfA from "./Components/pages/comptes/ProfA";
 import Navbar from "./Components/Navigation";
-import Login from "./Components/Login";
 import { AuthContext } from "./context/Auth";
 import EleveLog from "./Components/EleveLog";
 import NosFormation from "./Components/pages/NosFormation";
 import NousContacter from "./Components/pages/NousContacter";
-import SalleA from "./Components/pages/comptes/SalleA";
-import SalleB from "./Components/pages/comptes/SalleB";
 import "./App.css"
 import AvisForm from "./Components/pages/AvisForm";
 // import QuiSommesNous from "./Components/pages/QuiSommesNous";
