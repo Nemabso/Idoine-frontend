@@ -25,6 +25,7 @@ export default function Navigation({ setUserID }) {
                                     <div className="dropdown rounded">
                                         <Link to="/notre-mission"><span className="p-2">Notre mission</span></Link>
                                         <Link to="/financer"><span className="p-2">Financer votre formation</span></Link>
+                                        <Link to="/partenaires"><span className="p-2">Partenaires</span></Link>
                                     </div>
                                 </li>
 
@@ -35,7 +36,6 @@ export default function Navigation({ setUserID }) {
                                     <p className="nav-item">AVIS</p>
                                     <div className="dropdown rounded">
                                         <Link to="/satisfaction"><span className="p-2">Satisfaction</span></Link>
-                                        <Link to="/partenaires"><span className="p-2">Partenaires</span></Link>
                                         <Link to="/avis"><span className="p-2">Laisser un avis</span></Link>
                                     </div>
                                 </li>
