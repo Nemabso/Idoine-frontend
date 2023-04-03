@@ -25,43 +25,31 @@ export default function Satisfaction() {
 
     return (
         <>
-            <article className='avis-clients'>
-                <section className='avis-back-handshake'>
-                    <div className='avis-back-filtre'>
-                        <h1>STATISTIQUES DE SATISFACTION</h1>
-                    </div>
-                </section>
-
-                {/* <svg width={200} height={200}>
-                <g transform="rotate(-90 100 100)">
-                    <circle r="70" cx={100} cy={100} fill='transparent' stroke='lightgrey' strokeWidth={"2rem"} strokeDasharray={438.8} strokeDashoffset={0}></circle>
-                    <circle r="70" cx={100} cy={100} fill='transparent' stroke='blue' strokeLinecap='round' strokeWidth={"2rem"} strokeDasharray={438.8} strokeDashoffset={66}></circle>
-                </g>
-                <text x={"50%"} y={"50%"} dominantBaseline={"central"} textAnchor='middle'>hej</text>
-            </svg> */}
-                <section className="avis-client-sec-down">
-                    <div className='avis-client-secs'>
-                        <GrUser fill='#0B346C' size={80} />
-                        <h2 className='avis-client-texts'>Satisfaction des employeurs</h2>
-                        <CircleP className="avis-circle" percentage={noteEmployeur} colour={"#e8eaeb"} />
-                    </div>
-                    <div className='avis-client-secs'>
-                        <div>
-                            <MdDone fill='#0B346C' size={50} />
-                            <MdPersonSearch fill='#0B346C' size={100} />
+            <div className='avis-background-img'>
+                <div className='avis-wrapper'>
+                    <h1>STATISTIQUES DE SATISFACTION</h1>
+                    <section className='avis-pannel'>
+                        <div className='avis-cards'>
+                            <GrUser fill='#0B346C' size={50} />
+                            <h3 className='avis-label'>Satisfaction<br />des employeurs</h3>
+                            <CircleP className="avis-circle" percentage={noteEmployeur} colour={"#e8eaeb"} />
                         </div>
-                        <h2 className='avis-client-texts'>Satisfaction Pôle Emploi</h2>
-                        <CircleP percentage={0} colour={"#e8eaeb"} />
-                    </div>
-                    <div className='avis-client-secs'>
-                        <FaThumbsUp fill='#0B346C' size={100} />
-                        <h2 className='avis-client-texts'>Satisfacation des apprenants</h2>
-                        <CircleP percentage={0} colour={"#e8eaeb"} />
-                    </div>
-                </section>
-
-            </article>
-
+                        <div className='avis-cards'>
+                            <div>
+                                <MdDone fill='#0B346C' size={25} />
+                                <MdPersonSearch fill='#0B346C' size={50} />
+                            </div>
+                            <h3 className='avis-label'>Satisfaction<br />Pôle Emploi</h3>
+                            <CircleP percentage={0} colour={"#e8eaeb"}/>
+                        </div>
+                        <div className='avis-cards'>
+                            <FaThumbsUp fill='#0B346C' size={50} />
+                            <h3 className='avis-label'>Satisfaction<br />des apprenants</h3>
+                            <CircleP percentage={0} colour={"#e8eaeb"} />
+                        </div>
+                    </section>
+                </div>
+            </div>
         </>
     )
 }
