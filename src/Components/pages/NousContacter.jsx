@@ -66,53 +66,53 @@ export default function NousContacter() {
                                 <p className="ps-2"><b> +33-6-88-46-46-82</b></p>
                             </div>
                             <div className="inside-nous-contact">
-                                <p>Vous êtes formateur? contactez nous à <br /> dominique.idoine@orange.fr </p>
+                                <p>Vous êtes formateur? contactez nous à <strong>dominique.idoine@orange.fr</strong></p>
                             </div>
                         </div>
                     </div>
                     <div className="contactform col-md-6">
                         <form className="p-2" onSubmit={handleSubmit} method="POST" encType="multipart/form-data">
                             <div>
-                                <label htmlFor="name" className="form-label"> Nom et Prènom </label>
-                                <input type="text" id="name" name="name" className="form-control" required onChange={(e) => setName(e.target.value)} placeholder="Prènom et Nom *" />
+                                <label htmlFor="name" className="form-label">Nom et Prénom*</label>
+                                <input type="text" id="name" name="name" className="form-control" required onChange={(e) => setName(e.target.value)} placeholder="Nom et Prénom" />
                             </div>
                             <div className="email-content">
-                                <label htmlFor="email" className="form-label">Email</label>
+                                <label htmlFor="email" className="form-label">Adresse e-mail*</label>
                                 <input type="email" id="email" name="email" className="form-control" required onChange={(e) => setEmail(e.target.value)}
-                                    placeholder="email *" />
+                                    placeholder="Adresse e-mail" />
                             </div>
                             <div>
-                                <label htmlFor="phone" className="form-label">téléphone</label>
-                                <input type="text" id="phone" name="phone" className="form-control" required onChange={(e) => setPhone(e.target.value)} placeholder="téléphone *" />
+                                <label htmlFor="phone" className="form-label">N° de téléphone*</label>
+                                <input type="text" id="phone" name="phone" className="form-control" required onChange={(e) => setPhone(e.target.value)} placeholder="N° de téléphone" />
                             </div>
                             <div>
-                                <label htmlFor="ville" className="form-label">Département/Ville</label>
-                                <input type="text" id="ville" name="ville" className="form-control" required onChange={(e) => setDepartement(e.target.value)} placeholder="Département/Ville *" />
+                                <label htmlFor="ville" className="form-label">Département/Ville*</label>
+                                <input type="text" id="ville" name="ville" className="form-control" required onChange={(e) => setDepartement(e.target.value)} placeholder="Département/Ville" />
                             </div>
                             <div>
-                                <label htmlFor="statut" className="form-label">Statut</label>
-                                <input type="text" id="statut" name="statut" className="form-control" required onChange={(e) => setStatu(e.target.value)} placeholder="Statut *" />
-                            </div>
-
-                            <div>
-                                <label htmlFor="participants" className="form-label">Nombre de participants</label>
-                                <input type="text" id="participants" name="participants" className="form-control" required onChange={(e) => setParticipants(e.target.value)} placeholder="participants *" />
-                            </div>
-                            <div>
-                                <label htmlFor="theme" className="form-label">Thème de formation</label>
-                                <input type="text" id="theme" name="theme" className="form-control" onChange={(e) => setTheme(e.target.value)} placeholder="Thème" />
+                                <label htmlFor="statut" className="form-label">Statut*</label>
+                                <input type="text" id="statut" name="statut" className="form-control" required onChange={(e) => setStatu(e.target.value)} placeholder="Statut" />
                             </div>
 
                             <div>
-                                <label htmlFor="message" className="form-label">Message</label>
-                                <textarea id="message" name="message" spellCheck="true" className="form-control" required onChange={(e) => setMessage(e.target.value)} placeholder="message *"
+                                <label htmlFor="participants" className="form-label">Nombre estimé de participants</label>
+                                <input type="number" id="participants" name="participants" className="form-control" required onChange={(e) => setParticipants(e.target.value)} placeholder="Nombre estimé de participants" />
+                            </div>
+                            <div>
+                                <label htmlFor="theme" className="form-label">Thème de formation concerné</label>
+                                <input type="text" id="theme" name="theme" className="form-control" onChange={(e) => setTheme(e.target.value)} placeholder="Thème de formation" />
+                            </div>
+
+                            <div>
+                                <label htmlFor="message" className="form-label">Votre message*</label>
+                                <textarea id="message" name="message" spellCheck="true" className="form-control" required onChange={(e) => setMessage(e.target.value)} placeholder="Message"
                                 />
                             </div>
                             <div className="form-group pt-3">
                                 <ReCAPTCHA sitekey="6Le7E94eAAAAANxRH_jg71-jZsRL19pr5vicwkaH" onChange={(e) => setRecaptcha(e)} />
                             </div>
                             <button className="btn btn-primary mt-2" type="submit">Envoyer</button>
-                            <button className="btn btn-warning ms-3 mt-2" type="reset">reset</button>
+                            <button className="btn btn-warning ms-3 mt-2" type="reset">Réinitialiser les champs</button>
                         </form>
                     </div>
                 </div>
