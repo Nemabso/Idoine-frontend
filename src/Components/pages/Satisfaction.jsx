@@ -6,18 +6,27 @@ import { MdPersonSearch, MdDone } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
 import axios from 'axios';
 
-
 export default function Satisfaction() {
-    const [noteEmployeur, setNoteEmployeur] = useState(0);
-    const [notePoleEmploi, setNotePoleEmploi] = useState(0);
-    const [noteApprenant, setNoteApprenant] = useState(0);
+    const [employerRate, setEmployerRate] = useState(0);
+    const [poleEmploiRate, setPoleEmploiRate] = useState(0);
+    const [learnerRate, setLearnerRate] = useState(0);
     const mainColour = "#0b346c";
+
+    function sortReviews(data) {
+        const sortedReviews = {employer: [], poleEmploi: [], learner: []};
+        data.forEach(review => {
+            sortedReviews[review.type].push(review);
+        });
+        return sortedReviews;
+    }
 
     useEffect(() => {
         axios.get("http://localhost:5000/api/review")
             .then((res) => {
-                console.log(res.data);
-                setNoteEmployeur(res.data.reduce((sum, avis) => sum + avis.rate, 0) / res.data.length * 20);
+                const sortedReviews = sortReviews(res.data);
+                setEmployerRate(Math.floor(sortedReviews.employer.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.employer.length * 20));
+                setPoleEmploiRate(Math.floor(sortedReviews.poleEmploi.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.employer.length * 20));
+                setLearnerRate(Math.floor(sortedReviews.learner.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.employer.length * 20));
             })
             .catch((err) => {
                 console.log(err);
@@ -33,7 +42,7 @@ export default function Satisfaction() {
                         <div className='avis-cards'>
                             <GrUser fill='#0B346C' size={50} />
                             <h3 className='avis-label'>Satisfaction<br />des employeurs</h3>
-                            <CircleP className="avis-circle" percentage={noteEmployeur} colour={mainColour} />
+                            <CircleP className="avis-circle" percentage={employerRate} colour={mainColour} />
                         </div>
                         <div className='avis-cards'>
                             <div>
@@ -41,12 +50,12 @@ export default function Satisfaction() {
                                 <MdPersonSearch fill='#0B346C' size={50} />
                             </div>
                             <h3 className='avis-label'>Satisfaction<br />Pôle Emploi</h3>
-                            <CircleP percentage={0} colour={mainColour}/>
+                            <CircleP percentage={poleEmploiRate} colour={mainColour}/>
                         </div>
                         <div className='avis-cards'>
                             <FaThumbsUp fill='#0B346C' size={50} />
                             <h3 className='avis-label'>Satisfaction<br />des apprenants</h3>
-                            <CircleP percentage={0} colour={mainColour} />
+                            <CircleP percentage={learnerRate} colour={mainColour} />
                         </div>
                     </section>
                 </div>
