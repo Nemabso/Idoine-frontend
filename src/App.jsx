@@ -8,7 +8,7 @@ import EleveLog from "./Components/EleveLog";
 import NosFormation from "./Components/pages/NosFormation";
 import NousContacter from "./Components/pages/NousContacter";
 import "./App.css"
-import AvisForm from "./Components/pages/AvisForm";
+import ReviewForm from "./Components/pages/ReviewForm";
 // import QuiSommesNous from "./Components/pages/QuiSommesNous";
 import Financer from "./Components/pages/Financer";
 import NotreMission from "./Components/pages/NotreMission";
@@ -30,7 +30,7 @@ export default function App() {
       <main className='app-main'>
         <Routes>
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
-          <Route exact path="/avis" element={<AvisForm />} />
+          <Route exact path="/avis" element={<ReviewForm />} />
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />
 

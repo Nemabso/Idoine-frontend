@@ -11,7 +11,7 @@ export default function StarRating({ rating, setRating }) {
                 const ratingValue = i + 1;
                 return (
                     <label key={i}>
-                        <input className='d-none' type="radio" name="rating" value={ratingValue} onClick={() => setRating(ratingValue)} />
+                        <input className='d-none' type="radio" name="rate" value={ratingValue} onClick={setRating} />
                         <FaStar size={30} className='star'
                             color={ratingValue <= (hover || rating) ? "#ffc107" : "#e4e5e9"}
                             onMouseEnter={() => setHover(ratingValue)}

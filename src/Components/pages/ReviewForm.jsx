@@ -5,7 +5,7 @@ import Modal from "react-modal";
 import { Col, Row } from 'react-bootstrap';
 
 export default function ReviewForm() {
-    const [review, setReview] = useState({ name: "", company: "", position: "", email: "", comment: "", rate: 0 });
+    const [review, setReview] = useState({ name: "", companyName: "", position: "", email: "", comment: "", rate: 0 });
 
     const handleChanges = ({ currentTarget }) => {
         const { name, value } = currentTarget;
@@ -16,14 +16,16 @@ export default function ReviewForm() {
         setReview({ ...review, rate: currentTarget.value })
     }
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         console.log(review);
-        // await axios.post(``, {}).then((res) => {
-            
-        // }).catch(({ response }) => {
+        axios.post('http://localhost:5000/api/review/create', review)
+        .then((res) => {
+            console.log(res)
+        })
+        .catch(({ response }) => {
 
-        // })
+        })
         // e.target.reset();
     }
 
@@ -39,8 +41,8 @@ export default function ReviewForm() {
                                 <input type="text" className="form-control" name='name' id="name" required onChange={handleChanges} value={review.name} placeholder="votre nom ...*" />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="company" className="form-label">Societé</label>
-                                <input type="text" className="form-control" name='company' id="company" required onChange={handleChanges} value={review.company} placeholder="Societé ...*" />
+                                <label htmlFor="companyName" className="form-label">Societé</label>
+                                <input type="text" className="form-control" name='companyName' id="companyName" required onChange={handleChanges} value={review.companyName} placeholder="Societé ...*" />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="postion" className="form-label">Fonction</label>
