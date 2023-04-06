@@ -18,14 +18,13 @@ export default function ReviewForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(review);
-        axios.post('http://localhost:5000/api/review/create', review)
-        .then((res) => {
-            console.log(res)
-        })
-        .catch(({ response }) => {
-
-        })
+        axios.post('http://localhost:5000/api/review/submit', review)
+            .then((res) => {
+                console.log(res)
+            })
+            .catch(({ response }) => {
+                
+            })
         // e.target.reset();
     }
 
