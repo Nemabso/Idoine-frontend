@@ -3,9 +3,11 @@ import React, { useState } from 'react';
 import StarRating from '../StarRating';
 import Modal from "react-modal";
 import { Col, Row } from 'react-bootstrap';
+import "./ReviewForm.css";
 
 export default function ReviewForm() {
     const [review, setReview] = useState({ name: "", companyName: "", position: "", email: "", comment: "", rate: 0 });
+    const [errorList, setErrorList] = useState([]);
 
     const handleChanges = ({ currentTarget }) => {
         const { name, value } = currentTarget;
@@ -18,14 +20,29 @@ export default function ReviewForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:5000/api/review/submit', review)
+        setErrorList([]);
+        axios.post('http://localhost:5000/api/review/submit', {review: review})
             .then((res) => {
-                console.log(res)
+                saveReview(prompt("Veuillez entrer le mot de passe fourni par Idoine Formation"))
             })
-            .catch(({ response }) => {
-                
+            .catch((err) => {
+                displayErrors(err.response.data.errors);
             })
-        // e.target.reset();
+    }
+
+    const saveReview = (password) => {
+        setErrorList([]);
+        axios.post('http://localhost:5000/api/review/create', {review: review, password: password})
+            .then((res) => {
+                console.log(res);
+            })
+            .catch((err) => {
+                displayErrors(err.response.data.errors);
+            })
+    }
+
+    const displayErrors = (errors) => {
+        setErrorList([...Object.keys(errors).map((key) => errors[key].message)]);
     }
 
     return (
@@ -34,6 +51,7 @@ export default function ReviewForm() {
             <Row className='d-flex justify-content-center'>
                 <Col className='p-3'>
                     <form onSubmit={handleSubmit} className='container p-3 rounded bg-light'>
+                        {errorList.length !== 0 && errorList.map(error => <p className='form-error' key={error}>{error}</p>)}
                         <div className='p-4'>
                             <div className="mb-3">
                                 <label htmlFor="name" className="form-label">Nom</label>
@@ -52,8 +70,8 @@ export default function ReviewForm() {
                                 <input type="email" className="form-control" name='email' id="email" required onChange={handleChanges} placeholder="votre email ...*" />
                             </div>
                             <div className="mb-3">
-                                <label htmlFor="comment" className="form-label">Donner votre avis</label>
-                                <textarea className="form-control" spellCheck="true" name='comment' id="comment" placeholder='votre avis...*' required onChange={handleChanges} rows="3" />
+                                <label htmlFor="comment" className="form-label">Donnez votre avis</label>
+                                <textarea className="form-control" spellCheck="true" name='comment' id="comment" placeholder='votre avis... (30 caractères minimum)*' required onChange={handleChanges} rows="3" />
                             </div>
                             <div className='d-flex flex-wrap justify-content-between align-items-center'>
                                 <div><StarRating rating={review.rate} setRating={setRate} /></div>
