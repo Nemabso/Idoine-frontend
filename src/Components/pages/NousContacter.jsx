@@ -99,8 +99,8 @@ export default function NousContacter() {
                                 <input type="number" id="participants" name="participants" className="form-control" required onChange={(e) => setParticipants(e.target.value)} placeholder="Nombre estimé de participants" />
                             </div>
                             <div>
-                                <label htmlFor="theme" className="form-label">Thème de formation concerné</label>
-                                <input type="text" id="theme" name="theme" className="form-control" onChange={(e) => setTheme(e.target.value)} placeholder="Thème de formation" />
+                                <label htmlFor="theme" className="form-label">Thème de la formation concernée</label>
+                                <input type="text" id="theme" name="theme" className="form-control" onChange={(e) => setTheme(e.target.value)} placeholder="Thème de la formation" />
                             </div>
 
                             <div>

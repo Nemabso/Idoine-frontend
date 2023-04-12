@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Error404 from "./Components/Error404";
 import Home from "./Components/pages/Home";
@@ -17,20 +17,31 @@ import Partenaires from "./Components/pages/Partenaires";
 import GestionCookies from "./Components/pages/GestionCookies";
 import MentionsLegales from "./Components/pages/MentionsLegales";
 import Footer from "./Components/Footer";
+import ResponseModal from "./Components/ResponseModal";
+
 export default function App() {
   const [isAuthenticated, setIsAuthenticated, role] = useContext(AuthContext);
+  const [responseMessages, setResponseMessages] = useState([]);
   // console.log(setIsAuthenticated);
 
   const [userID, setUserID] = useState("");
   // console.log("userID", userID);
 
+  useEffect(
+    () => {
+      if (responseMessages.length !== 0) setTimeout(() => setResponseMessages([]), 4000);
+    },
+    [responseMessages],
+  );
+
   return (
     <div className='app'>
       <Navbar userID={userID} setUserID={setUserID} />
+      {responseMessages.length !== 0 && <ResponseModal messages={responseMessages}/>}
       <main className='app-main'>
         <Routes>
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
-          <Route exact path="/avis" element={<ReviewForm />} />
+          <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} />
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />
 

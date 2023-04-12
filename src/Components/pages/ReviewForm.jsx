@@ -1,14 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import StarRating from '../StarRating';
-import Modal from "react-modal";
 import { Col, Row } from 'react-bootstrap';
 import "./ReviewForm.css";
+import { useNavigate } from 'react-router-dom';
 
-export default function ReviewForm() {
+export default function ReviewForm({throwMessages}) {
     const reviewInitialState = { name: "", companyName: "", position: "", email: "", comment: "", rate: 3 };
     const [review, setReview] = useState(reviewInitialState);
     const [errorList, setErrorList] = useState([]);
+    const navigate = useNavigate();
 
     const handleChanges = ({ currentTarget }) => {
         const { name, value } = currentTarget;
@@ -37,6 +38,8 @@ export default function ReviewForm() {
             .then((res) => {
                 console.log(res);
                 setReview(reviewInitialState);
+                throwMessages(["Formulaire envoyé avec succès. Merci pour votre avis !"]);
+                navigate("/");
             })
             .catch((err) => {
                 displayErrors(err.response.data.errors);
@@ -73,7 +76,7 @@ export default function ReviewForm() {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="comment" className="form-label">Donnez votre avis</label>
-                                <textarea className="form-control" spellCheck="true" name='comment' id="comment" placeholder='votre avis... (30 caractères minimum)*' required onChange={handleChanges} rows="3" />
+                                <textarea className="form-control" spellCheck="true" name='comment' id="comment" placeholder='votre avis... (10 caractères minimum)*' required onChange={handleChanges} rows="3" />
                             </div>
                             <div className='d-flex flex-wrap justify-content-between align-items-center'>
                                 <div><StarRating rating={review.rate} setRating={setRate} /></div>
@@ -83,15 +86,6 @@ export default function ReviewForm() {
                     </form>
                 </Col>
             </Row>
-
-            {/* <div>
-                <Modal className="modal-signup rounded-pill bg-light col-5"
-                    ariaHideApp={false} isOpen={true} onRequestClose={() => setShowModal(false)}>
-                    <h1>Test</h1>
-                    <button className="btn btn-secondary" onClick={() => setShowModal(false)}>fermer</button>
-                </Modal>
-            </div> */}
-
         </>
     )
 }
