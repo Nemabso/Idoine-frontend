@@ -6,7 +6,8 @@ import { Col, Row } from 'react-bootstrap';
 import "./ReviewForm.css";
 
 export default function ReviewForm() {
-    const [review, setReview] = useState({ name: "", companyName: "", position: "", email: "", comment: "", rate: 0 });
+    const reviewInitialState = { name: "", companyName: "", position: "", email: "", comment: "", rate: 3 };
+    const [review, setReview] = useState(reviewInitialState);
     const [errorList, setErrorList] = useState([]);
 
     const handleChanges = ({ currentTarget }) => {
@@ -35,6 +36,7 @@ export default function ReviewForm() {
         axios.post('http://localhost:5000/api/review/create', {review: review, password: password})
             .then((res) => {
                 console.log(res);
+                setReview(reviewInitialState);
             })
             .catch((err) => {
                 displayErrors(err.response.data.errors);
@@ -84,8 +86,8 @@ export default function ReviewForm() {
 
             {/* <div>
                 <Modal className="modal-signup rounded-pill bg-light col-5"
-                    ariaHideApp={false} isOpen={showModal} onRequestClose={() => setShowModal(false)}>
-                    <h1>{massege}</h1>
+                    ariaHideApp={false} isOpen={true} onRequestClose={() => setShowModal(false)}>
+                    <h1>Test</h1>
                     <button className="btn btn-secondary" onClick={() => setShowModal(false)}>fermer</button>
                 </Modal>
             </div> */}
