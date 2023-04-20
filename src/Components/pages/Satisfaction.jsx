@@ -26,7 +26,6 @@ export default function Satisfaction() {
         axios.get(`${config.apiBaseUrl}/review`)
             .then((res) => {
                 const sortedReviews = sortReviews(res.data);
-                console.log(sortedReviews);
                 setEmployerRate(Math.floor(sortedReviews.employer.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.employer.length * 20));
                 setPoleEmploiRate(Math.floor(sortedReviews.poleEmploi.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.poleEmploi.length * 20));
                 setLearnerRate(Math.floor(sortedReviews.learner.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.learner.length * 20));
