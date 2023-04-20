@@ -42,7 +42,7 @@ export default function App() {
       <main className='app-main'>
         <Routes>
           {/* Maintenance */}
-          <Route exact path="/satisfaction" element={<Maintenance />} />
+          {/* <Route exact path="/satisfaction" element={<Maintenance />} /> */}
 
           {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
