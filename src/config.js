@@ -1,5 +1,8 @@
 const config = {
-    apiBaseUrl: 'https://idoineformation.fr/api'
+    apiBaseUrl: 'https://idoineformation.fr/api',
+    unavailableRoutes: [
+        '/satisfaction'
+    ],
 };
 
 export default config;

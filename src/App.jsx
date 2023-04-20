@@ -19,6 +19,7 @@ import MentionsLegales from "./Components/pages/MentionsLegales";
 import Footer from "./Components/Footer";
 import ResponseModal from "./Components/ResponseModal";
 import Maintenance from "./Components/pages/Maintenance";
+import config from "./config";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated, role] = useContext(AuthContext);
@@ -42,7 +43,7 @@ export default function App() {
       <main className='app-main'>
         <Routes>
           {/* Maintenance */}
-          {/* <Route exact path="/satisfaction" element={<Maintenance />} /> */}
+          {config.unavailableRoutes.map((route) => <Route exact path={route} element={<Maintenance />} />)}
 
           {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
