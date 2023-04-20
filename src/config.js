@@ -1,5 +1,7 @@
 const config = {
-    apiBaseUrl: 'https://idoineformation.fr/api'
+    apiBaseUrl: 'https://localhost:5000/api',
+    unavailableRoutes: [
+    ],
 };
 
 export default config;
