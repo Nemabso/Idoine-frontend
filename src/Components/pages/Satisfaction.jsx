@@ -5,6 +5,8 @@ import { GrUser } from "react-icons/gr";
 import { MdPersonSearch, MdDone } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
 import axios from 'axios';
+import {AxiosError} from 'axios';
+import config from '../../config';
 
 export default function Satisfaction() {
     const [employerRate, setEmployerRate] = useState(0);
@@ -21,7 +23,7 @@ export default function Satisfaction() {
     }
 
     useEffect(() => {
-        axios.get("http://localhost:5000/api/review")
+        axios.get(`${config.apiBaseUrl}/review`)
             .then((res) => {
                 const sortedReviews = sortReviews(res.data);
                 console.log(sortedReviews);
@@ -29,8 +31,8 @@ export default function Satisfaction() {
                 setPoleEmploiRate(Math.floor(sortedReviews.poleEmploi.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.poleEmploi.length * 20));
                 setLearnerRate(Math.floor(sortedReviews.learner.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.learner.length * 20));
             })
-            .catch((err) => {
-                console.log(err);
+            .catch((error) => {
+                console.log(error);
             })
     }, [])
 
