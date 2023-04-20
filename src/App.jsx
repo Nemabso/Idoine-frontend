@@ -18,6 +18,7 @@ import GestionCookies from "./Components/pages/GestionCookies";
 import MentionsLegales from "./Components/pages/MentionsLegales";
 import Footer from "./Components/Footer";
 import ResponseModal from "./Components/ResponseModal";
+import Maintenance from "./Components/pages/Maintenance";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated, role] = useContext(AuthContext);
@@ -40,6 +41,10 @@ export default function App() {
       {responseMessages.length !== 0 && <ResponseModal messages={responseMessages}/>}
       <main className='app-main'>
         <Routes>
+          {/* Maintenance */}
+          <Route exact path="/satisfaction" element={<Maintenance />} />
+
+          {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
           <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} />
           <Route exact path="/satisfaction" element={<Satisfaction />} />
