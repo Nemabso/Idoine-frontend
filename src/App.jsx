@@ -8,7 +8,6 @@ import EleveLog from "./Components/EleveLog";
 import NosFormation from "./Components/pages/NosFormation";
 import NousContacter from "./Components/pages/NousContacter";
 import "./App.css"
-import ReviewForm from "./Components/pages/ReviewForm";
 // import QuiSommesNous from "./Components/pages/QuiSommesNous";
 import Financer from "./Components/pages/Financer";
 import NotreMission from "./Components/pages/NotreMission";
@@ -20,6 +19,7 @@ import Footer from "./Components/Footer";
 import ResponseModal from "./Components/ResponseModal";
 import Maintenance from "./Components/pages/Maintenance";
 import config from "./config";
+import Review from "./Components/pages/Review/Review";
 
 export default function App() {
   const [isAuthenticated, setIsAuthenticated, role] = useContext(AuthContext);
@@ -47,7 +47,8 @@ export default function App() {
 
           {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
-          <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} />
+          <Route exact path="/avis" element={<Review/>} />
+          {/* <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} /> */}
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />
 
