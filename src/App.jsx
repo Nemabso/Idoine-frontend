@@ -47,7 +47,7 @@ export default function App() {
 
           {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
-          <Route exact path="/avis" element={<Review/>} />
+          <Route exact path="/avis" element={<Review throwMsg={setResponseMessages} />} />
           {/* <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} /> */}
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />

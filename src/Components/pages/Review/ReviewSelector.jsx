@@ -17,7 +17,7 @@ export default function ReviewSelector({validateType}) {
                     name='type'
                     type='radio'
                     value='learner'
-                    label={'Apprenant ayant suivi la formation'}
+                    label={'Apprenant ayant suivi une formation'}
                 />
                 <Form.Check
                     name='type'
