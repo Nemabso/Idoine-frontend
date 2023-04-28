@@ -59,9 +59,6 @@ export default function NousContacter() {
                                 notre équipe s'engage à vous rappeler dans les plus bref délais.
                             </h2>
                             <div className="d-flex">
-                                <span className='text-primary'><BsGeoAlt /></span><p className="ps-2">15 boulevard des vergers 69630 Chaponost</p>
-                            </div>
-                            <div className="d-flex">
                                 <a href="tel:+33688464682" className='text-primary'> <FiPhoneCall /></a>
                                 <p className="ps-2"><b> +33-6-88-46-46-82</b></p>
                             </div>

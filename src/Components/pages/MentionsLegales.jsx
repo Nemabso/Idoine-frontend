@@ -6,11 +6,10 @@ export default function MentionsLegales() {
         <div className='container pt-5 pb-5'>
             <div>
                 <h1>Informations légales</h1>
-                <h2 className='fs-5'>Le site IDOINEFORMATION.FR est la propriété de la SAS Idoine Transaction Conseil 15 boulevard des vergers chaponost, numéro de SIRET <u> 879238723 au RCS de Lyon.</u></h2>
+                <h2 className='fs-5'>Le site IDOINEFORMATION.FR est la propriété de la SAS Idoine Transaction Conseil, numéro de SIRET 879238723 au RCS de Lyon.</h2>
             </div>
             <div>
                 <h2>Contact</h2>
-                <h4>Siège : 15 boulevard des vergers 69630 Chaponost</h4>
                 <h4>Tél : <u> 06 88 46 46 82</u></h4>
                 <h4>Adresse électronique : <u> dominique.idoine@orange.fr</u></h4>
             </div>
@@ -38,11 +37,8 @@ export default function MentionsLegales() {
             </div>
             <div>
                 <h4>Conformément à la loi n° 78-17 du 6 janvier 1978, toute personne dispose d’un droit d’accès, d’interrogation, de rectification des données la concernant et, d’opposition pour motifs légitimes à ce que les données la concernant fassent l’objet du traitement.
-                    Ces droits peuvent être exercés :
+                    Ces droits peuvent être exercés en adressant un courriel à l’adresse suivante : dominique.idoine@orange.fr
                 </h4>
-                <li className="fs-4">Soit en adressant un courriel à l’adresse suivante : <u> dominique.idoine@orange.fr</u></li>
-                <li className="fs-4">Soit en adressant un courrier par voie postale à l’adresse suivante : Idoine Transaction Conseil 15 boulevard des vergers 69630 Chaponost
-                    Le demandeur doit justifier de son identité par tout moyen.</li>
             </div>
             <div>
                 <h2>Propriété intellectuelle</h2>
