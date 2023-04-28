@@ -7,14 +7,14 @@ import { Row, Col } from "react-bootstrap";
 import './Home.css'
 import Modal from "react-bootstrap/Modal";
 import ModalHeader from 'react-bootstrap/esm/ModalHeader';
-import quote from "./imag/quote.png";
+import quote from "../../assets/images/quote.png";
 import Typical from "react-typical";
 import axios from 'axios';
 import { AuthContext } from '../../context/Auth';
 import Services from '../Article/Services';
 import NosExpertises from '../Article/NosExpertises';
 import ArticleFinancer from "../Article/ArtcileFinancer";
-import logofinance from "./imag/logofinance.png";
+import logofinance from "../../assets/images/logofinance.png";
 import marques from "./Marques";
 
 export default function Home({ userID, setUserID }) {

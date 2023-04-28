@@ -1,8 +1,8 @@
 import React from 'react';
 import "./partenaires.css";
-import emploi from "./imag/emploi.png";
-import agefos from "./imag/agefos.jpg";
-import akto from "./imag/akto.png";
+import emploi from "../../assets/images/emploi.png";
+import agefos from "../../assets/images/agefos.jpg";
+import akto from "../../assets/images/akto.png";
 
 export default function Partenaires() {
     return (
