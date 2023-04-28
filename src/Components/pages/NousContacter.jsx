@@ -59,9 +59,6 @@ export default function NousContacter() {
                                 notre équipe s'engage à vous rappeler dans les plus bref délais.
                             </h2>
                             <div className="d-flex">
-                                <span className='text-primary'><BsGeoAlt /></span><p className="ps-2">15 boulevard des vergers 69630 Chaponost</p>
-                            </div>
-                            <div className="d-flex">
                                 <a href="tel:+33688464682" className='text-primary'> <FiPhoneCall /></a>
                                 <p className="ps-2"><b> +33-6-88-46-46-82</b></p>
                             </div>
@@ -70,7 +67,8 @@ export default function NousContacter() {
                             </div>
                         </div>
                     </div>
-                    <div className="contactform col-md-6">
+                    {/* // TODO fix contact form */}
+                    {/* <div className="contactform col-md-6">
                         <form className="p-2" onSubmit={handleSubmit} method="POST" encType="multipart/form-data">
                             <div>
                                 <label htmlFor="name" className="form-label">Nom et Prénom*</label>
@@ -114,7 +112,7 @@ export default function NousContacter() {
                             <button className="btn btn-primary mt-2" type="submit">Envoyer</button>
                             <button className="btn btn-warning ms-3 mt-2" type="reset">Réinitialiser les champs</button>
                         </form>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <Modal className="modal-signup rounded-pill bg-light col-4" ariaHideApp={false} onRequestClose={() => setShowModal(false)} isOpen={showModal} >
