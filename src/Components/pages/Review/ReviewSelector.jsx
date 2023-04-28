@@ -29,7 +29,7 @@ export default function ReviewSelector({validateType}) {
                     name='type'
                     type='radio'
                     value='funding'
-                    label={'Organisme financeur'}
+                    label={'Organisme partenaire'}
                 />
             </div>
             <button className='btn btn-primary' type='submit'>Continuer</button>
