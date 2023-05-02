@@ -89,7 +89,7 @@ export default function LearnerForm({throwMsg}) {
                             <TextInput {... {name: 'companyName', label: 'Societé pour laquelle vous avez été en formation', placeholder: 'Societé', handleChanges: handleChange, value: review.companyName, isRequired: true}} />
                             <TextInput {... {name: 'teacher', label: 'Nom du formateur ayant dispensé la formation', placeholder: 'Formateur', handleChanges: handleChange, value: review.teacher, isRequired: true}} />
                             {review.rates.map(({label, rate}) => <StarRating key={label} {...{rating: rate, setRating: handleRateChange, name: label, label: label}} />)}
-                            <TextArea {...{name: 'comment', label: 'Vos commentaires et suggestions', placeholder: 'Vos commentaires et suggestions', handleChanges: handleChange, value: review.comment, isRequired: false}}/>
+                            <TextArea {...{name: 'comment', label: 'Vos commentaires et suggestions', placeholder: 'Vos commentaires et suggestions (facultatif)', handleChanges: handleChange, value: review.comment, isRequired: false}}/>
                             <button className="btn btn-primary" type="submit">Envoyer</button>
                         </div>
                     </form>

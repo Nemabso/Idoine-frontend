@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
+import FundingForm from "./FundingForm";
 import LearnerForm from "./LearnerForm";
 import ReviewSelector from "./ReviewSelector";
 
@@ -11,6 +12,7 @@ export default function Review({throwMsg}) {
             <div className='d-flex flex-column justify-content-center'>
                 {!type && <ReviewSelector validateType={setType}/>}
                 {type === 'learner' && <LearnerForm throwMsg={throwMsg} />}
+                {type === 'funding' && <FundingForm throwMsg={throwMsg} />}
             </div>
         </>
     )
