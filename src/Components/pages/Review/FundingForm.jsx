@@ -53,6 +53,7 @@ export default function FundingForm({throwMsg}) {
             })
             .catch((err) => {
                 displayErrors(err.response.data.errors);
+                window.scrollTo(0, 0);
             })
     }
 

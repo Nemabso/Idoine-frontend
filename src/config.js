@@ -1,5 +1,5 @@
 const config = {
-    apiBaseUrl: 'https://localhost:5000/api',
+    apiBaseUrl: 'http://localhost:5000/api',
     unavailableRoutes: [
     ],
 };

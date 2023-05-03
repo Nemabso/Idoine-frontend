@@ -5,30 +5,21 @@ import { GrUser } from "react-icons/gr";
 import { MdPersonSearch, MdDone } from "react-icons/md";
 import { FaThumbsUp } from "react-icons/fa";
 import axios from 'axios';
-import {AxiosError} from 'axios';
 import config from '../../config';
 
 export default function Satisfaction() {
     const [employerRate, setEmployerRate] = useState(0);
-    const [poleEmploiRate, setPoleEmploiRate] = useState(0);
+    const [fundingRate, setFundingRate] = useState(0);
     const [learnerRate, setLearnerRate] = useState(0);
     const mainColour = "#0b346c";
 
-    function sortReviews(data) {
-        const sortedReviews = {employer: [], poleEmploi: [], learner: []};
-        data.forEach(review => {
-            sortedReviews[review.type].push(review);
-        });
-        return sortedReviews;
-    }
-
     useEffect(() => {
-        axios.get(`${config.apiBaseUrl}/review`)
+        axios.get(`${config.apiBaseUrl}/review/getStats`)
             .then((res) => {
-                const sortedReviews = sortReviews(res.data);
-                setEmployerRate(Math.floor(sortedReviews.employer.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.employer.length * 20));
-                setPoleEmploiRate(Math.floor(sortedReviews.poleEmploi.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.poleEmploi.length * 20));
-                setLearnerRate(Math.floor(sortedReviews.learner.reduce((sum, avis) => sum + avis.rate, 0) / sortedReviews.learner.length * 20));
+                const {learnerStats, employerStats, fundingStats} = {...res.data};
+                setEmployerRate(typeof(employerStats) === 'number' ? employerStats : 0);
+                setLearnerRate(typeof(learnerStats) === 'number' ? learnerStats : 0);
+                setFundingRate(typeof(fundingStats) === 'number' ? fundingStats : 0);
             })
             .catch((error) => {
                 console.log(error);
@@ -52,7 +43,7 @@ export default function Satisfaction() {
                                 <MdPersonSearch fill='#0B346C' size={50} />
                             </div>
                             <h3 className='avis-label'>Satisfaction<br />Pôle Emploi</h3>
-                            <CircleP percentage={poleEmploiRate} colour={mainColour}/>
+                            <CircleP percentage={fundingRate} colour={mainColour}/>
                         </div>
                         <div className='avis-cards'>
                             <FaThumbsUp fill='#0B346C' size={50} />
