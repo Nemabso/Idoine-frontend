@@ -21,7 +21,6 @@ import Review from "./Components/pages/Review/Review";
 
 export default function App() {
   const [responseMessages, setResponseMessages] = useState([]);
-  // console.log(setIsAuthenticated);
 
   useEffect(
     () => {
@@ -44,14 +43,13 @@ export default function App() {
           <Route exact path="/avis" element={<Review throwMsg={setResponseMessages} />} />
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />
-
           <Route path="/contact" element={<NousContacter />} />
-          {/* <Route path="/quisommesnous" element={<QuiSommesNous />} /> */}
           <Route exact path="/nos-formations" element={<NosFormation />} />
           <Route exact path="/financer" element={<Financer />} />
           <Route exact path="/notre-mission" element={<NotreMission />} />
           <Route exact path="/gestion-cookies" element={<GestionCookies />} />
           <Route exact path="/mention-legales" element={<MentionsLegales />} />
+          {/* <Route path="/quisommesnous" element={<QuiSommesNous />} /> */}
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
       </main>
