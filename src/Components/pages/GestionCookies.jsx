@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import idoinlogo from "./imag/logoIdoine.png";
+import idoinlogo from "../../assets/images/logoIdoine.png";
 
 export default function GestionCookies() {
     return (
