@@ -5,8 +5,6 @@ import "./motiver.css";
 
 export default function Motiver() {
     return (
-        // du a changement d'avis de cliant a chaque fois left or right a été mis au contraire !
-
         <article className='troisieme-article'>
             <section className='tois-sec-left'>
                 <div className='d-flex align-items-end'>

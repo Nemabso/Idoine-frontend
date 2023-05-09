@@ -1,7 +1,7 @@
 import { Navbar, Nav } from "react-bootstrap";
 import "./Navigation.css";
 import { Link, useNavigate } from "react-router-dom";
-export default function Navigation({ setUserID }) {
+export default function Navigation() {
 
     const navigate = useNavigate();
 
