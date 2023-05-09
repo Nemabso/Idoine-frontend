@@ -3,7 +3,7 @@ import "./nousContacter.css";
 import ReCAPTCHA from "react-google-recaptcha";
 import { BsGeoAlt } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
-// import sidimag from "./imag/design.svg";
+// import sidimag from "../../assets/images/design.svg";
 import axios from "axios";
 import Modal from "react-modal";
 

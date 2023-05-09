@@ -1,5 +1,5 @@
 .partenaires-background {
-    background: url("./imag/team2.jpg") center no-repeat;
+    background: url("../../assets/images/team2.jpg") center no-repeat;
     background-size: cover;
     flex: 1;
     display: flex;

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import StarRating from '../StarRating';
+import StarRating from '../../StarRating';
 import { Col, Row } from 'react-bootstrap';
 import "./ReviewForm.css";
 import { useNavigate } from 'react-router-dom';
@@ -52,7 +52,7 @@ export default function ReviewForm({throwMessages}) {
 
     return (
         <>
-            <h1 className='p-3 text-center'>Laissez nos votre avis !</h1>
+            <h1 className='p-3 text-center'>Laissez nous votre avis !</h1>
             <Row className='d-flex justify-content-center'>
                 <Col className='p-3'>
                     <form onSubmit={handleSubmit} className='container p-3 rounded bg-light'>

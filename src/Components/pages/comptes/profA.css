@@ -1,5 +1,5 @@
 .back-page-profs {
-    background: url("../imag/green.jpg") no-repeat fixed center top transparent;
+    background: url(".../../assets/images/green.jpg") no-repeat fixed center top transparent;
     min-height: 85vh;
 }
 
@@ -64,11 +64,11 @@
 }
 
 .page-salon-a {
-    background: url("../imag/prewall.jpg") no-repeat;
+    background: url(".../../assets/images/prewall.jpg") no-repeat;
     min-height: 100vh;
 }
 
 .page-salon-b {
-    background: url("../imag/wallblanc.jpg") no-repeat;
+    background: url(".../../assets/images/wallblanc.jpg") no-repeat;
     min-height: 100vh;
 }
