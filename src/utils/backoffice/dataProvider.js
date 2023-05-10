@@ -14,6 +14,7 @@ const dataProvider = {
             range: JSON.stringify([(page - 1) * perPage, page * perPage - 1]),
             filter: JSON.stringify(params.filter),
         };
+        // TODO : implement query parameters in URL
         const url = `${apiUrl}/${resource}`;
 
         return httpClient(url).then(({ json }) => ({
@@ -27,6 +28,7 @@ const dataProvider = {
             data: { ...json, id: json._id},
         })),
 
+    // TODO : method taken from react-admin documentation : to be modified
     getMany: (resource, params) => {
         const query = {
             filter: JSON.stringify({ id: params.ids }),
@@ -35,6 +37,7 @@ const dataProvider = {
         return httpClient(url).then(({ json }) => ({ data: json }));
     },
 
+    // TODO : method taken from react-admin documentation : to be modified
     getManyReference: (resource, params) => {
         const { page, perPage } = params.pagination;
         const { field, order } = params.sort;
@@ -54,12 +57,14 @@ const dataProvider = {
         }));
     },
 
-    update: (resource, params) =>
-        httpClient(`${apiUrl}/${resource}/${params.id}`, {
+    // TODO : method taken from react-admin documentation : to be modified
+    update: (resource, params) => 
+            httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: 'PUT',
             body: JSON.stringify(params.data),
-        }).then(({ json }) => ({ data: json })),
+        }).then(({ json }) => ({ data: {...json, id: json._id}})),
 
+    // TODO : method taken from react-admin documentation : to be modified
     updateMany: (resource, params) => {
         const query = {
             filter: JSON.stringify({ id: params.ids}),
@@ -70,6 +75,7 @@ const dataProvider = {
         }).then(({ json }) => ({ data: json }));
     },
 
+    // TODO : method taken from react-admin documentation : to be modified
     create: (resource, params) =>
         httpClient(`${apiUrl}/${resource}`, {
             method: 'POST',
@@ -78,11 +84,13 @@ const dataProvider = {
             data: { ...params.data, id: json.id },
         })),
 
+    // TODO : method taken from react-admin documentation : to be modified
     delete: (resource, params) =>
         httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: 'DELETE',
         }).then(({ json }) => ({ data: json })),
 
+    // TODO : method taken from react-admin documentation : to be modified
     deleteMany: (resource, params) => {
         const query = {
             filter: JSON.stringify({ id: params.ids}),
