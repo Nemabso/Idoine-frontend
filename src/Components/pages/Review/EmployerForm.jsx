@@ -65,7 +65,7 @@ export default function EmployerForm({throwMsg}) {
         axios.post('http://localhost:5000/api/review/submit', {review: review, type: "employer"})
             .then((res) => {
                 const password = prompt("Veuillez entrer le mot de passe fourni par Idoine Formation");
-                if (password) saveReview(prompt("Veuillez entrer le mot de passe fourni par Idoine Formation"));
+                if (password) saveReview(password);
             })
             .catch((err) => {
                 displayErrors(err.response.data.errors);
