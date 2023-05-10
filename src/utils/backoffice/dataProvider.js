@@ -57,7 +57,6 @@ const dataProvider = {
         }));
     },
 
-    // TODO : method taken from react-admin documentation : to be modified
     update: (resource, params) => 
             httpClient(`${apiUrl}/${resource}/${params.id}`, {
             method: 'PUT',
