@@ -49,7 +49,8 @@ export default function FundingForm({throwMsg}) {
         setErrorList([]);
         axios.post('http://localhost:5000/api/review/submit', {review: review, type: "funding"})
             .then((res) => {
-                saveReview(prompt("Veuillez entrer le mot de passe fourni par Idoine Formation"))
+                const password = prompt("Veuillez entrer le mot de passe fourni par Idoine Formation");
+                if (password) saveReview(password);
             })
             .catch((err) => {
                 displayErrors(err.response.data.errors);

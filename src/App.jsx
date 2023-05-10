@@ -43,7 +43,7 @@ export default function App() {
       <main className='app-main'>
         <Routes>
           {/* Maintenance */}
-          {config.unavailableRoutes.map((route) => <Route exact path={route} element={<Maintenance />} />)}
+          {config.unavailableRoutes.map((route) => <Route exact key={route} path={route} element={<Maintenance />} />)}
 
           {/* Pages */}
           <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />

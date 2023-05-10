@@ -17,9 +17,9 @@ export default function Satisfaction() {
         axios.get(`${config.apiBaseUrl}/review/getStats`)
             .then((res) => {
                 const {learnerStats, employerStats, fundingStats} = {...res.data};
-                setEmployerRate(typeof(employerStats) === 'number' ? employerStats : 0);
-                setLearnerRate(typeof(learnerStats) === 'number' ? learnerStats : 0);
-                setFundingRate(typeof(fundingStats) === 'number' ? fundingStats : 0);
+                setEmployerRate(typeof(employerStats) === 'number' ? Math.round(employerStats) : 0);
+                setLearnerRate(typeof(learnerStats) === 'number' ? Math.round(learnerStats) : 0);
+                setFundingRate(typeof(fundingStats) === 'number' ? Math.round(fundingStats) : 0);
             })
             .catch((error) => {
                 console.log(error);
@@ -42,7 +42,7 @@ export default function Satisfaction() {
                                 <MdDone fill='#0B346C' size={25} />
                                 <MdPersonSearch fill='#0B346C' size={50} />
                             </div>
-                            <h3 className='avis-label'>Satisfaction<br />Pôle Emploi</h3>
+                            <h3 className='avis-label'>Satisfaction<br />des partenaires</h3>
                             <CircleP percentage={fundingRate} colour={mainColour}/>
                         </div>
                         <div className='avis-cards'>

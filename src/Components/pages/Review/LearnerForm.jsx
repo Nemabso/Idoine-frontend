@@ -6,6 +6,7 @@ import "./ReviewForm.css";
 import { useNavigate } from 'react-router-dom';
 import TextInput from '../../formInputs/TextInput';
 import TextArea from '../../formInputs/TextArea';
+import config from '../../../config';
 
 export default function LearnerForm({throwMsg}) {
     const ratedQuestions = [
@@ -49,11 +50,13 @@ export default function LearnerForm({throwMsg}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrorList([]);
-        axios.post('http://localhost:5000/api/review/submit', {review: review, type: "learner"})
+        axios.post(`${config.apiBaseUrl}/review/submit`, {review: review, type: "learner"})
             .then((res) => {
-                saveReview(prompt("Veuillez entrer le mot de passe fourni par Idoine Formation"))
+                const password = prompt("Veuillez entrer le mot de passe fourni par Idoine Formation");
+                if (password) saveReview(password);
             })
             .catch((err) => {
+                console.log(err);
                 displayErrors(err.response.data.errors);
                 window.scrollTo(0, 0);
             })
@@ -61,13 +64,14 @@ export default function LearnerForm({throwMsg}) {
 
     const saveReview = (password) => {
         setErrorList([]);
-        axios.post('http://localhost:5000/api/review/create', {review: review, type: "learner", password: password})
+        axios.post(`${config.apiBaseUrl}/review/create`, {review: review, type: "learner", password: password})
             .then((res) => {
                 setReview(reviewInitialState);
                 throwMsg(["Formulaire envoyé avec succès. Merci pour votre avis !"]);
                 navigate("/");
             })
             .catch((err) => {
+                console.log(err);
                 if(typeof err.response.data === "string") setErrorList([err.response.data]);
                 else displayErrors(err.response.data.errors);
             })
