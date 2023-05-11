@@ -6,3 +6,11 @@ export const translateReviewType = (type) => {
         default: return type;
     }
 }
+
+export const getAuthHeader = () => {
+    return {
+        headers: {
+          Authorization: `Bearer ${sessionStorage.getItem("jwt")}`,
+        },
+    };
+}

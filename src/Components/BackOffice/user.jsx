@@ -1,9 +1,9 @@
-import { TextField as MuiTextField } from '@material-ui/core';
 import { useState } from 'react';
+import {  } from 'react-admin';
 import {
+    TextField,
     useUpdate,
     useNotify,
-    FunctionField,
     useGetOne,
     useRedirect,
     List,
@@ -15,21 +15,15 @@ import {
     Toolbar,
     useRecordContext,
     SaveButton
-} from 'react-admin'
+} from 'react-admin';
+import { TextField as MuiTextField } from '@material-ui/core';
 import { useParams } from 'react-router-dom';
-import { translateReviewType } from './utils/functions';
 
-const ReviewTypeTitle = () => {
-    const record = useRecordContext();
-    if(!record) return null;
-    return <span>Mot de passe {translateReviewType(record.type)}</span>;
-}
-
-export function ReviewTypeList() {
+export function UserList() {
     return (
-        <List title="Mots de passe : Formulaires d'avis">
+        <List title="Comptes administrateur">
             <Datagrid bulkActionButtons={false}>
-                <FunctionField render={record => translateReviewType(record.type)} label='Formulaire'/>
+                <TextField source='login' label='Identifiant' />
                 <DateField source='updatedAt' label='Dernière modification' options={{hour: "numeric", minute: "numeric"}}/>
                 <EditButton />
             </Datagrid>
@@ -37,15 +31,21 @@ export function ReviewTypeList() {
     );
 }
 
-export const ReviewTypeEdit = (props) => {
+const UserEditTitle = () => {
+    const record = useRecordContext();
+    if(!record) return null;
+    return <span>Mot de passe de l'utilisateur : {record.login}</span>;
+}
+
+export const UserEdit = () => {
     const { id } = useParams();
-    const { data } = useGetOne('reviewType', { id });
+    const { data } = useGetOne('user', { id });
     const redirect = useRedirect();
     const notify = useNotify();
     const [update] = useUpdate();
 
-    const PasswordToolbar = () => (
-        <Toolbar>
+    const PasswordToolbar = (props) => (
+        <Toolbar {...props}>
             <SaveButton alwaysEnable={validatePassword()} />
         </Toolbar>
     );
@@ -62,11 +62,11 @@ export const ReviewTypeEdit = (props) => {
 
     const handleSubmit = () => {
         update(
-            'reviewType',
+            'user',
             { id, data: {...data, password: input.password} },
             {
                 onSuccess: () => {
-                    redirect('/admin/reviewType');
+                    redirect('/admin/user');
                     notify('Mot de passe modifié !')
                 },
                 onError: (error) => {
@@ -77,7 +77,7 @@ export const ReviewTypeEdit = (props) => {
     }
 
     return (
-        <Edit title={<ReviewTypeTitle />}>
+        <Edit title={<UserEditTitle />}>
             <SimpleForm toolbar={<PasswordToolbar />} onSubmit={handleSubmit} validate={validatePassword}>
                 <MuiTextField required label='Nouveau mot de passe' type='password' onChange={handleChange} value={input.password} name='password' />
                 <MuiTextField required label='Confirmer le mot de passe' type='password' onChange={handleChange} value={input.confirmation} name='confirmation' />
