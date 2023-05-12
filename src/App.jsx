@@ -1,10 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Error404 from "./Components/Error404";
 import Home from "./Components/pages/Home";
 import Navbar from "./Components/Navigation";
-import { AuthContext } from "./context/Auth";
-import EleveLog from "./Components/EleveLog";
 import NosFormation from "./Components/pages/NosFormation";
 import NousContacter from "./Components/pages/NousContacter";
 import "./App.css"
@@ -22,12 +20,7 @@ import config from "./config";
 import Review from "./Components/pages/Review/Review";
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated, role] = useContext(AuthContext);
   const [responseMessages, setResponseMessages] = useState([]);
-  // console.log(setIsAuthenticated);
-
-  const [userID, setUserID] = useState("");
-  // console.log("userID", userID);
 
   useEffect(
     () => {
@@ -38,7 +31,7 @@ export default function App() {
 
   return (
     <div className='app'>
-      <Navbar userID={userID} setUserID={setUserID} />
+      <Navbar />
       {responseMessages.length !== 0 && <ResponseModal messages={responseMessages}/>}
       <main className='app-main'>
         <Routes>
@@ -46,20 +39,17 @@ export default function App() {
           {config.unavailableRoutes.map((route) => <Route exact key={route} path={route} element={<Maintenance />} />)}
 
           {/* Pages */}
-          <Route exact path="/" element={<Home userID={userID} setUserID={setUserID} />} />
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/avis" element={<Review throwMsg={setResponseMessages} />} />
-          {/* <Route exact path="/avis" element={<ReviewForm throwMessages={setResponseMessages}/>} /> */}
           <Route exact path="/satisfaction" element={<Satisfaction />} />
           <Route exact path="/partenaires" element={<Partenaires />} />
-
-          <Route path="/contact" element={<NousContacter userID={userID} setUserID={setUserID} />} />
-          {/* <Route path="/quisommesnous" element={<QuiSommesNous />} /> */}
-          <Route exact path="/connexion/eleve" element={<EleveLog />} />
+          <Route path="/contact" element={<NousContacter />} />
           <Route exact path="/nos-formations" element={<NosFormation />} />
           <Route exact path="/financer" element={<Financer />} />
           <Route exact path="/notre-mission" element={<NotreMission />} />
           <Route exact path="/gestion-cookies" element={<GestionCookies />} />
           <Route exact path="/mention-legales" element={<MentionsLegales />} />
+          {/* <Route path="/quisommesnous" element={<QuiSommesNous />} /> */}
           <Route path="*" element={<Error404 />}></Route>
         </Routes>
       </main>

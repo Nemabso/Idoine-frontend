@@ -1,13 +1,5 @@
-/* .six-article-forma {
-    background: url("./articleimages/logoback.png") center no-repeat;
-    background-size: 38% auto;
-    background-position-y: 68%;
-    min-height: 100vh;
-} */
-
 .six-sections-forma {
     min-height: 86vh;
-    /* background: #f9fafbd6; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;

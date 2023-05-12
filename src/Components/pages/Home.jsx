@@ -1,42 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Carousel from 'react-bootstrap/Carousel';
-// import { Link } from 'react-router-dom';
-// import vid from '../video/premier.mp4';
 import { Row, Col } from "react-bootstrap";
 import './Home.css'
 import Modal from "react-bootstrap/Modal";
 import ModalHeader from 'react-bootstrap/esm/ModalHeader';
 import quote from "../../assets/images/quote.png";
 import Typical from "react-typical";
-import axios from 'axios';
-import { AuthContext } from '../../context/Auth';
 import Services from '../Article/Services';
 import NosExpertises from '../Article/NosExpertises';
 import ArticleFinancer from "../Article/ArtcileFinancer";
 import logofinance from "../../assets/images/logofinance.png";
 import marques from "./Marques";
 
-export default function Home({ userID, setUserID }) {
-    const [isAuthenticated, setIsAuthenticated, role, setRole] = useContext(AuthContext);
-    // console.log(isAuthenticated, setIsAuthenticated, role);
+export default function Home() {
     const [pageNumber, setPageNumber] = useState("")
     const [fullscreen, setFullscreen] = useState(true);
     const [showModal, setShowModal] = useState(false);
 
-    const userId = userID ? userID : sessionStorage.getItem("userId");
-    useEffect(() => {
-        if (userId) {
-            axios.get(`http://localhost:5000/user/login/${userId}`).then((res) => {
-                const { user } = res.data;
-                setUserID(user._id);
-                setRole(user.role);
-            }).catch((err) => {
-                console.log("error get files :", err);
-                console.error(err)
-            })
-        }
-    }, [userId, setUserID, setRole])
     return (
         <main>
 
@@ -139,9 +120,6 @@ export default function Home({ userID, setUserID }) {
                 {pageNumber === 2 && <NosExpertises />}
                 {pageNumber === 3 && <ArticleFinancer />}
             </Modal>
-
-            <p className='d-none'>{role && setIsAuthenticated && isAuthenticated}</p>
-
         </main>
     )
 }

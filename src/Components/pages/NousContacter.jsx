@@ -29,22 +29,22 @@ export default function NousContacter() {
     //     console.log("recaptcha value ", value);
     // }
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await axios.post("http://localhost:5000/user/contactus", {
-            name: name, phone: phone, email: email, message: message, captcha: recaptcha,
-            departement: departement, statu: statu, participants: participants, theme: theme
-        }).then((res) => {
-            setmodalMessage(res.data);
-            setShowModal(true);
-            e.target.reset();
-        }).catch(({ response }) => {
-            console.log("contact us :", response);
-            setmodalMessage(response.data);
-            setShowModal(true);
-        })
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     await axios.post("http://localhost:5000/user/contactus", {
+    //         name: name, phone: phone, email: email, message: message, captcha: recaptcha,
+    //         departement: departement, statu: statu, participants: participants, theme: theme
+    //     }).then((res) => {
+    //         setmodalMessage(res.data);
+    //         setShowModal(true);
+    //         e.target.reset();
+    //     }).catch(({ response }) => {
+    //         console.log("contact us :", response);
+    //         setmodalMessage(response.data);
+    //         setShowModal(true);
+    //     })
 
-    };
+    // };
 
     return (
         <>

@@ -15,9 +15,6 @@ export default function ThemesFormation() {
                     <div className='six-underline' />
                 </div>
             </div>
-            {/* <div className='sixforma-title'>
-                <h1>Quelques exemples de thémes de formation :</h1>
-            </div> */}
             <section className='six-sections-forma'>
                 <section className='sixform-secs'>
                     <div className='sixform-titre'>
@@ -38,7 +35,6 @@ export default function ThemesFormation() {
                     </ul>
                 </section>
                 <span className='d-none d-lg-block trois-vertical'></span>
-                {/* deux rad */}
                 <section className='sixform-secs'>
                     <div className='sixform-titre'>
                         <h4>Juridique</h4>
@@ -57,7 +53,6 @@ export default function ThemesFormation() {
                     </ul>
                 </section>
                 <span className='d-none d-lg-block trois-vertical'></span>
-                {/* trois rad */}
                 <section className='sixform-secs'>
                     <div className='sixform-titre'>
                         <h5>Management</h5>
