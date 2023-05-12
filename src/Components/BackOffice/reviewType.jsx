@@ -37,7 +37,7 @@ export function ReviewTypeList() {
     );
 }
 
-export const ReviewTypeEdit = (props) => {
+export const ReviewTypeEdit = () => {
     const { id } = useParams();
     const { data } = useGetOne('reviewType', { id });
     const redirect = useRedirect();

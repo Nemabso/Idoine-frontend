@@ -22,9 +22,10 @@ const dataProvider = {
     },
 
     getOne: (resource, params) =>
-        axios.get(`${apiUrl}/${resource}/${params.id}`, getAuthHeader()).then(({ data }) => ({
-            data: { ...data, id: data._id},
-        })),
+        axios.get(`${apiUrl}/${resource}/${params.id}`, getAuthHeader())
+            .then(({ data }) => ({
+                data: { ...data, id: data._id},
+            })),
 
 
     // TODO : method taken from react-admin documentation : to be modified when method is needed
@@ -59,10 +60,6 @@ const dataProvider = {
     update: (resource, params) => 
         axios.put(`${apiUrl}/${resource}/${params.id}`, params.data, getAuthHeader())
             .then(({ data }) => ({ data: {...data, id: data._id}})),
-        // httpClient(`${apiUrl}/${resource}/${params.id}`, {
-        //     method: 'PUT',
-        //     body: JSON.stringify(params.data),
-        // }).then(({ json }) => ({ data: {...json, id: json._id}})),
 
     // TODO : method taken from react-admin documentation : to be modified when method is needed
     // updateMany: (resource, params) => {
